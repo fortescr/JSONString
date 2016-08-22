@@ -1,0 +1,47 @@
+package org.jsonConvert;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class JSONArray extends ArrayList implements List {
+	private static final long serialVersionUID = 3957988303675231981L;
+
+	public static String toJSONString(List list){
+		if(list == null)
+			return "null";
+
+		boolean first = true;
+		StringBuffer sb = new StringBuffer();
+		Iterator iter=list.iterator();
+
+		sb.append('[');
+		while(iter.hasNext()){
+			if(first)
+				first = false;
+			else
+				sb.append(',');
+
+			Object value=iter.next();
+			if(value == null){
+				sb.append("null");
+				continue;
+			}
+			sb.append(JSONValue.toJSONString(value));
+		}
+		sb.append(']');
+		return sb.toString();
+	}
+
+	public String toJSONString(){
+		return toJSONString(this);
+	}
+
+	public String toString() {
+		return toJSONString();
+	}
+
+
+
+}
