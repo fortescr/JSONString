@@ -10,7 +10,7 @@ JSONValue.toJSONFile(persons, "/Users/"+System.getProperty("user.name")+"/Docume
 
 2) Object to String
 
-JSONValue.toJSONFile(Object)
+JSONValue.toJSONString(Object)
 
 Ex:
-JSONValue.toJSONFile(Object)
+JSONValue.toJSONString(Object)
